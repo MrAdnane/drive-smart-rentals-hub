@@ -10,7 +10,7 @@ interface VehicleGridProps {
   showFilters?: boolean;
 }
 
-const VehicleGrid = ({ vehicles, title = "Available Vehicles", showFilters = true }: VehicleGridProps) => {
+const VehicleGrid = ({ vehicles, title = "Véhicules Disponibles", showFilters = true }: VehicleGridProps) => {
   const [sortOrder, setSortOrder] = useState<string>("recommended");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   
@@ -42,10 +42,10 @@ const VehicleGrid = ({ vehicles, title = "Available Vehicles", showFilters = tru
           <div className="flex flex-col sm:flex-row gap-3 mt-3 sm:mt-0 w-full sm:w-auto">
             <Select value={categoryFilter} onValueChange={setCategoryFilter}>
               <SelectTrigger className="w-full sm:w-[180px]">
-                <SelectValue placeholder="All Categories" />
+                <SelectValue placeholder="Toutes Catégories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
+                <SelectItem value="all">Toutes Catégories</SelectItem>
                 {categories.map(category => (
                   <SelectItem key={category} value={category}>
                     {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -56,13 +56,13 @@ const VehicleGrid = ({ vehicles, title = "Available Vehicles", showFilters = tru
             
             <Select value={sortOrder} onValueChange={setSortOrder}>
               <SelectTrigger className="w-full sm:w-[180px]">
-                <SelectValue placeholder="Sort by" />
+                <SelectValue placeholder="Trier par" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="recommended">Recommended</SelectItem>
-                <SelectItem value="price-asc">Price: Low to High</SelectItem>
-                <SelectItem value="price-desc">Price: High to Low</SelectItem>
-                <SelectItem value="newest">Newest First</SelectItem>
+                <SelectItem value="recommended">Recommandés</SelectItem>
+                <SelectItem value="price-asc">Prix: Croissant</SelectItem>
+                <SelectItem value="price-desc">Prix: Décroissant</SelectItem>
+                <SelectItem value="newest">Plus Récents</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -77,15 +77,15 @@ const VehicleGrid = ({ vehicles, title = "Available Vehicles", showFilters = tru
         </div>
       ) : (
         <div className="text-center py-12 bg-gray-50 rounded-lg">
-          <h3 className="text-lg font-medium mb-2">No vehicles found</h3>
+          <h3 className="text-lg font-medium mb-2">Aucun véhicule trouvé</h3>
           <p className="text-muted-foreground mb-4">
-            Try changing your filters or check back later for new vehicles.
+            Essayez de changer vos filtres ou revenez plus tard pour découvrir de nouveaux véhicules.
           </p>
           <Button variant="outline" onClick={() => {
             setCategoryFilter("all");
             setSortOrder("recommended");
           }}>
-            Clear Filters
+            Réinitialiser les Filtres
           </Button>
         </div>
       )}

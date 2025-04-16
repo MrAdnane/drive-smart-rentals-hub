@@ -11,28 +11,28 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-white">
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
-              Drive Smart with Our Premium Car Rental Service
+              Conduisez Intelligent avec Notre Service de Location Premium
             </h1>
             <p className="text-lg mb-8 text-blue-100">
-              Experience the freedom of the open road with our diverse fleet of vehicles. 
-              From economy to luxury, we have the perfect car for your needs.
+              Découvrez la liberté de la route avec notre flotte diversifiée de véhicules. 
+              De l'économique au luxe, nous avons le véhicule parfait pour vos besoins.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
                 <Link to="/vehicles">
-                  Browse Vehicles
+                  Parcourir les Véhicules
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button variant="outline" size="lg" className="bg-white/10 hover:bg-white/20 text-white border-white/30" asChild>
-                <Link to="/about">Learn More</Link>
+                <Link to="/about">En Savoir Plus</Link>
               </Button>
             </div>
           </div>
           <div className="hidden lg:block">
             <img 
               src="/car-hero.png" 
-              alt="Premium rental car" 
+              alt="Voiture de location premium" 
               className="rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-500"
             />
           </div>

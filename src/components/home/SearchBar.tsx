@@ -8,6 +8,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar as CalendarIcon, MapPin, Search } from "lucide-react";
 import { format } from "date-fns";
+import { fr } from "date-fns/locale";
 import { cn } from "@/lib/utils";
 
 const SearchBar = () => {
@@ -34,13 +35,13 @@ const SearchBar = () => {
       <form onSubmit={handleSearch} className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="space-y-2">
           <label htmlFor="location" className="block text-sm font-medium text-gray-700">
-            Location
+            Lieu
           </label>
           <div className="relative">
             <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
             <Input
               id="location"
-              placeholder="City or branch"
+              placeholder="Ville ou agence"
               className="pl-9"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -50,7 +51,7 @@ const SearchBar = () => {
         
         <div className="space-y-2">
           <label htmlFor="pickup-date" className="block text-sm font-medium text-gray-700">
-            Pickup Date
+            Date de prise en charge
           </label>
           <Popover>
             <PopoverTrigger asChild>
@@ -63,7 +64,7 @@ const SearchBar = () => {
                 )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {pickupDate ? format(pickupDate, "PPP") : <span>Select date</span>}
+                {pickupDate ? format(pickupDate, "PPP", { locale: fr }) : <span>Sélectionner une date</span>}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0">
@@ -72,6 +73,7 @@ const SearchBar = () => {
                 selected={pickupDate}
                 onSelect={setPickupDate}
                 initialFocus
+                locale={fr}
                 className="pointer-events-auto"
               />
             </PopoverContent>
@@ -80,7 +82,7 @@ const SearchBar = () => {
         
         <div className="space-y-2">
           <label htmlFor="return-date" className="block text-sm font-medium text-gray-700">
-            Return Date
+            Date de retour
           </label>
           <Popover>
             <PopoverTrigger asChild>
@@ -93,7 +95,7 @@ const SearchBar = () => {
                 )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {returnDate ? format(returnDate, "PPP") : <span>Select date</span>}
+                {returnDate ? format(returnDate, "PPP", { locale: fr }) : <span>Sélectionner une date</span>}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0">
@@ -102,6 +104,7 @@ const SearchBar = () => {
                 selected={returnDate}
                 onSelect={setReturnDate}
                 initialFocus
+                locale={fr}
                 className="pointer-events-auto"
                 disabled={(date) => 
                   (pickupDate ? date < pickupDate : false) || date < new Date()
@@ -113,19 +116,19 @@ const SearchBar = () => {
         
         <div className="space-y-2">
           <label htmlFor="vehicle-type" className="block text-sm font-medium text-gray-700">
-            Vehicle Type
+            Type de véhicule
           </label>
           <Select value={vehicleType} onValueChange={setVehicleType}>
             <SelectTrigger id="vehicle-type">
-              <SelectValue placeholder="All vehicles" />
+              <SelectValue placeholder="Tous les véhicules" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All vehicles</SelectItem>
-              <SelectItem value="economy">Economy</SelectItem>
+              <SelectItem value="all">Tous les véhicules</SelectItem>
+              <SelectItem value="économique">Économique</SelectItem>
               <SelectItem value="suv">SUV</SelectItem>
-              <SelectItem value="luxury">Luxury</SelectItem>
-              <SelectItem value="utility">Utility</SelectItem>
-              <SelectItem value="electric">Electric</SelectItem>
+              <SelectItem value="luxe">Luxe</SelectItem>
+              <SelectItem value="utilitaire">Utilitaire</SelectItem>
+              <SelectItem value="électrique">Électrique</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -133,7 +136,7 @@ const SearchBar = () => {
         <div className="md:col-span-4 mt-4">
           <Button type="submit" className="w-full" size="lg">
             <Search className="mr-2 h-4 w-4" />
-            Search Vehicles
+            Rechercher des Véhicules
           </Button>
         </div>
       </form>

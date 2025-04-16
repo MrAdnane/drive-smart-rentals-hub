@@ -24,13 +24,13 @@ const Navbar = () => {
           
           <nav className="hidden md:flex items-center space-x-4">
             <Link to="/" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
-              Home
+              Accueil
             </Link>
             <Link to="/vehicles" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
-              Vehicles
+              Véhicules
             </Link>
             <Link to="/about" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
-              About Us
+              À Propos
             </Link>
             <Link to="/contact" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
               Contact
@@ -44,11 +44,11 @@ const Navbar = () => {
             <Button variant="outline" size="sm" asChild>
               <Link to="/login">
                 <User className="h-4 w-4 mr-2" />
-                Login
+                Connexion
               </Link>
             </Button>
             <Button size="sm" asChild>
-              <Link to="/register">Register</Link>
+              <Link to="/register">S'inscrire</Link>
             </Button>
           </div>
           
@@ -72,13 +72,13 @@ const Navbar = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
             <Link to="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
-              Home
+              Accueil
             </Link>
             <Link to="/vehicles" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
-              Vehicles
+              Véhicules
             </Link>
             <Link to="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
-              About Us
+              À Propos
             </Link>
             <Link to="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
               Contact
@@ -88,10 +88,10 @@ const Navbar = () => {
             </Link>
             <div className="pt-4 pb-3 border-t border-gray-200">
               <Link to="/login" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
-                Login
+                Connexion
               </Link>
               <Link to="/register" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
-                Register
+                S'inscrire
               </Link>
             </div>
           </div>

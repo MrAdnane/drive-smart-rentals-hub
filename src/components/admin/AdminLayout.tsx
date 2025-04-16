@@ -28,15 +28,15 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
   const navigation = [
-    { name: 'Dashboard', href: '/admin', icon: Home },
-    { name: 'Vehicles', href: '/admin/vehicles', icon: Car },
-    { name: 'Customers', href: '/admin/customers', icon: Users },
-    { name: 'Reservations', href: '/admin/reservations', icon: Calendar },
+    { name: 'Tableau de Bord', href: '/admin', icon: Home },
+    { name: 'Véhicules', href: '/admin/vehicles', icon: Car },
+    { name: 'Clients', href: '/admin/customers', icon: Users },
+    { name: 'Réservations', href: '/admin/reservations', icon: Calendar },
     { name: 'Maintenance', href: '/admin/maintenance', icon: Wrench },
-    { name: 'Alerts', href: '/admin/alerts', icon: CircleAlert },
-    { name: 'Reports', href: '/admin/reports', icon: BarChart3 },
+    { name: 'Alertes', href: '/admin/alerts', icon: CircleAlert },
+    { name: 'Rapports', href: '/admin/reports', icon: BarChart3 },
     { name: 'Documents', href: '/admin/documents', icon: FileText },
-    { name: 'Settings', href: '/admin/settings', icon: Settings },
+    { name: 'Paramètres', href: '/admin/settings', icon: Settings },
   ];
   
   return (
@@ -106,7 +106,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
             <Button variant="outline" className="w-full justify-start text-left" asChild>
               <Link to="/">
                 <LogOut className="mr-2 h-4 w-4" />
-                Exit to Website
+                Retour au Site
               </Link>
             </Button>
           </div>
@@ -119,14 +119,14 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
           <div className="px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex justify-between items-center">
               <h1 className="text-2xl font-bold text-gray-900">
-                {navigation.find(item => item.href === location.pathname)?.name || 'Admin Panel'}
+                {navigation.find(item => item.href === location.pathname)?.name || 'Panneau d\'Administration'}
               </h1>
               <div className="flex items-center space-x-4">
                 <div className="hidden sm:flex items-center">
                   <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white">
                     A
                   </div>
-                  <span className="ml-2 text-sm font-medium">Admin User</span>
+                  <span className="ml-2 text-sm font-medium">Administrateur</span>
                 </div>
               </div>
             </div>
