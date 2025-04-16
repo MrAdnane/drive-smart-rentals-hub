@@ -15,7 +15,7 @@ const SearchBar = () => {
   const [location, setLocation] = useState("");
   const [pickupDate, setPickupDate] = useState<Date>();
   const [returnDate, setReturnDate] = useState<Date>();
-  const [vehicleType, setVehicleType] = useState("");
+  const [vehicleType, setVehicleType] = useState("all");
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const SearchBar = () => {
     if (location) params.append("location", location);
     if (pickupDate) params.append("pickup", pickupDate.toISOString());
     if (returnDate) params.append("return", returnDate.toISOString());
-    if (vehicleType) params.append("type", vehicleType);
+    if (vehicleType !== "all") params.append("type", vehicleType);
     
     navigate(`/vehicles?${params.toString()}`);
   };
@@ -72,6 +72,7 @@ const SearchBar = () => {
                 selected={pickupDate}
                 onSelect={setPickupDate}
                 initialFocus
+                className="pointer-events-auto"
               />
             </PopoverContent>
           </Popover>
@@ -101,6 +102,7 @@ const SearchBar = () => {
                 selected={returnDate}
                 onSelect={setReturnDate}
                 initialFocus
+                className="pointer-events-auto"
                 disabled={(date) => 
                   (pickupDate ? date < pickupDate : false) || date < new Date()
                 }
@@ -118,7 +120,7 @@ const SearchBar = () => {
               <SelectValue placeholder="All vehicles" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All vehicles</SelectItem>
+              <SelectItem value="all">All vehicles</SelectItem>
               <SelectItem value="economy">Economy</SelectItem>
               <SelectItem value="suv">SUV</SelectItem>
               <SelectItem value="luxury">Luxury</SelectItem>

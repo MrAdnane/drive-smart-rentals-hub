@@ -12,11 +12,11 @@ interface VehicleGridProps {
 
 const VehicleGrid = ({ vehicles, title = "Available Vehicles", showFilters = true }: VehicleGridProps) => {
   const [sortOrder, setSortOrder] = useState<string>("recommended");
-  const [categoryFilter, setCategoryFilter] = useState<string>("");
+  const [categoryFilter, setCategoryFilter] = useState<string>("all");
   
   // Apply filters and sorting
   const filteredVehicles = vehicles
-    .filter(vehicle => !categoryFilter || vehicle.category === categoryFilter)
+    .filter(vehicle => categoryFilter === "all" || vehicle.category === categoryFilter)
     .sort((a, b) => {
       switch (sortOrder) {
         case "price-asc":
@@ -45,7 +45,7 @@ const VehicleGrid = ({ vehicles, title = "Available Vehicles", showFilters = tru
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all">All Categories</SelectItem>
                 {categories.map(category => (
                   <SelectItem key={category} value={category}>
                     {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -82,7 +82,7 @@ const VehicleGrid = ({ vehicles, title = "Available Vehicles", showFilters = tru
             Try changing your filters or check back later for new vehicles.
           </p>
           <Button variant="outline" onClick={() => {
-            setCategoryFilter("");
+            setCategoryFilter("all");
             setSortOrder("recommended");
           }}>
             Clear Filters
