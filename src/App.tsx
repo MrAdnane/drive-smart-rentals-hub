@@ -12,6 +12,13 @@ import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminVehicles from "./pages/admin/AdminVehicles";
+import AdminCustomers from "./pages/admin/AdminCustomers";
+import AdminReservations from "./pages/admin/AdminReservations";
+import AdminMaintenance from "./pages/admin/AdminMaintenance";
+import AdminAlerts from "./pages/admin/AdminAlerts";
+import AdminReports from "./pages/admin/AdminReports";
+import AdminDocuments from "./pages/admin/AdminDocuments";
+import AdminSettings from "./pages/admin/AdminSettings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,7 +30,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          {/* Customer-facing routes */}
+          {/* Routes orientées client */}
           <Route path="/" element={<Index />} />
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/vehicles/:id" element={<VehicleDetail />} />
@@ -31,11 +38,18 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           
-          {/* Admin routes */}
+          {/* Routes d'administration */}
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/vehicles" element={<AdminVehicles />} />
+          <Route path="/admin/customers" element={<AdminCustomers />} />
+          <Route path="/admin/reservations" element={<AdminReservations />} />
+          <Route path="/admin/maintenance" element={<AdminMaintenance />} />
+          <Route path="/admin/alerts" element={<AdminAlerts />} />
+          <Route path="/admin/reports" element={<AdminReports />} />
+          <Route path="/admin/documents" element={<AdminDocuments />} />
+          <Route path="/admin/settings" element={<AdminSettings />} />
           
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* Route d'erreur 404 pour les chemins inexistants */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
