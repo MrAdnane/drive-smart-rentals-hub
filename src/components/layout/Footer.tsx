@@ -14,7 +14,7 @@ const Footer = () => {
               <span className="ml-2 text-xl font-bold">DriveSmart</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Premium car rental services for all your needs. Experience luxury, convenience, and reliability.
+              Service de location de voitures premium pour tous vos besoins. Découvrez le luxe, la commodité et la fiabilité.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-primary">
@@ -37,19 +37,19 @@ const Footer = () => {
           
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Liens Rapides</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-primary">Home</Link>
+                <Link to="/" className="text-gray-400 hover:text-primary">Accueil</Link>
               </li>
               <li>
-                <Link to="/vehicles" className="text-gray-400 hover:text-primary">Our Fleet</Link>
+                <Link to="/vehicles" className="text-gray-400 hover:text-primary">Notre Flotte</Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-primary">About Us</Link>
+                <Link to="/about" className="text-gray-400 hover:text-primary">À Propos</Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-400 hover:text-primary">Contact Us</Link>
+                <Link to="/contact" className="text-gray-400 hover:text-primary">Contactez-nous</Link>
               </li>
               <li>
                 <Link to="/faq" className="text-gray-400 hover:text-primary">FAQ</Link>
@@ -59,41 +59,41 @@ const Footer = () => {
           
           {/* Vehicle Categories */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Vehicle Categories</h3>
+            <h3 className="text-lg font-semibold mb-4">Catégories de Véhicules</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/vehicles?category=economy" className="text-gray-400 hover:text-primary">Economy</Link>
+                <Link to="/vehicles?category=economy" className="text-gray-400 hover:text-primary">Économique</Link>
               </li>
               <li>
                 <Link to="/vehicles?category=suv" className="text-gray-400 hover:text-primary">SUVs</Link>
               </li>
               <li>
-                <Link to="/vehicles?category=luxury" className="text-gray-400 hover:text-primary">Luxury</Link>
+                <Link to="/vehicles?category=luxury" className="text-gray-400 hover:text-primary">Luxe</Link>
               </li>
               <li>
-                <Link to="/vehicles?category=utility" className="text-gray-400 hover:text-primary">Utility</Link>
+                <Link to="/vehicles?category=utility" className="text-gray-400 hover:text-primary">Utilitaire</Link>
               </li>
               <li>
-                <Link to="/vehicles?category=electric" className="text-gray-400 hover:text-primary">Electric</Link>
+                <Link to="/vehicles?category=electric" className="text-gray-400 hover:text-primary">Électrique</Link>
               </li>
             </ul>
           </div>
           
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4">Contactez-nous</h3>
             <div className="space-y-3">
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                <span className="text-gray-400">123 Rental Street, City, Country, 12345</span>
+                <span className="text-gray-400">123 Rue de Location, Casablanca, Maroc, 20000</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-5 w-5 text-primary mr-2" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">+212 522 123 456</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-primary mr-2" />
-                <a href="mailto:info@drivesmart.com" className="text-gray-400 hover:text-primary">info@drivesmart.com</a>
+                <a href="mailto:info@drivesmart.ma" className="text-gray-400 hover:text-primary">info@drivesmart.ma</a>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 mt-12 pt-8">
           <p className="text-center text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} DriveSmart Rentals. All rights reserved.
+            &copy; {new Date().getFullYear()} DriveSmart Location. Tous droits réservés.
           </p>
         </div>
       </div>
