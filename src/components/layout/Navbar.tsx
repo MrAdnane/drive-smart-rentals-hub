@@ -1,14 +1,29 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Car, User, Menu, X } from "lucide-react";
+import { Car, User, Menu, X, LogOut } from "lucide-react";
 import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/components/ui/use-toast";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user, logout, isAdmin } = useAuth();
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleLogout = () => {
+    logout();
+    toast({
+      title: "Déconnexion réussie",
+      description: "Vous avez été déconnecté avec succès"
+    });
+    navigate("/");
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -35,21 +50,38 @@ const Navbar = () => {
             <Link to="/contact" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
               Contact
             </Link>
-            <Link to="/admin" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
-              Admin
-            </Link>
+            {isAdmin() && (
+              <Link to="/admin" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+                Admin
+              </Link>
+            )}
           </nav>
           
           <div className="hidden md:flex items-center space-x-2">
-            <Button variant="outline" size="sm" asChild>
-              <Link to="/login">
-                <User className="h-4 w-4 mr-2" />
-                Connexion
-              </Link>
-            </Button>
-            <Button size="sm" asChild>
-              <Link to="/register">S'inscrire</Link>
-            </Button>
+            {user ? (
+              <div className="flex items-center space-x-2">
+                <div className="text-sm mr-2">
+                  <span>Bonjour, </span>
+                  <span className="font-medium">{user.name}</span>
+                </div>
+                <Button variant="outline" size="sm" onClick={handleLogout}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Déconnexion
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Button variant="outline" size="sm" asChild>
+                  <Link to="/login">
+                    <User className="h-4 w-4 mr-2" />
+                    Connexion
+                  </Link>
+                </Button>
+                <Button size="sm" asChild>
+                  <Link to="/register">S'inscrire</Link>
+                </Button>
+              </>
+            )}
           </div>
           
           <div className="md:hidden">
@@ -71,28 +103,77 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-            <Link to="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
+            <Link 
+              to="/" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Accueil
             </Link>
-            <Link to="/vehicles" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
+            <Link 
+              to="/vehicles" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Véhicules
             </Link>
-            <Link to="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
+            <Link 
+              to="/about" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               À Propos
             </Link>
-            <Link to="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
+            <Link 
+              to="/contact" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Contact
             </Link>
-            <Link to="/admin" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
-              Admin
-            </Link>
+            {isAdmin() && (
+              <Link 
+                to="/admin" 
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Admin
+              </Link>
+            )}
             <div className="pt-4 pb-3 border-t border-gray-200">
-              <Link to="/login" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
-                Connexion
-              </Link>
-              <Link to="/register" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">
-                S'inscrire
-              </Link>
+              {user ? (
+                <div>
+                  <div className="px-3 py-2">
+                    <p className="text-base font-medium text-gray-700">
+                      Bonjour, {user.name}
+                    </p>
+                    <p className="text-sm text-gray-500">{user.email}</p>
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+                  >
+                    Déconnexion
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Connexion
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    S'inscrire
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
