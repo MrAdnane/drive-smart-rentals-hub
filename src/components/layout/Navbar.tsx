@@ -1,7 +1,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Car, User, Menu, X, LogOut } from "lucide-react";
+import { Car, User, Menu, X, LogOut, FileText, Calendar, Shield } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/components/ui/use-toast";
@@ -50,6 +50,19 @@ const Navbar = () => {
             <Link to="/contact" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
               Contact
             </Link>
+            {user && !isAdmin() && (
+              <>
+                <Link to="/client/reservations" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+                  Mes Réservations
+                </Link>
+                <Link to="/client/profile" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+                  Mon Profil
+                </Link>
+                <Link to="/client/documents" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+                  Mes Documents
+                </Link>
+              </>
+            )}
             {isAdmin() && (
               <Link to="/admin" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
                 Admin
@@ -131,6 +144,31 @@ const Navbar = () => {
             >
               Contact
             </Link>
+            {user && !isAdmin() && (
+              <>
+                <Link 
+                  to="/client/reservations" 
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Mes Réservations
+                </Link>
+                <Link 
+                  to="/client/profile" 
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Mon Profil
+                </Link>
+                <Link 
+                  to="/client/documents" 
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Mes Documents
+                </Link>
+              </>
+            )}
             {isAdmin() && (
               <Link 
                 to="/admin" 

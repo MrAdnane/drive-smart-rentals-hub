@@ -28,6 +28,16 @@ import AdminAlerts from "./pages/admin/AdminAlerts";
 import AdminReports from "./pages/admin/AdminReports";
 import AdminDocuments from "./pages/admin/AdminDocuments";
 import AdminSettings from "./pages/admin/AdminSettings";
+import VehicleTracking from "./pages/admin/VehicleTracking";
+import VehicleMaintenance from "./pages/admin/VehicleMaintenance";
+import InsuranceManagement from "./pages/admin/InsuranceManagement";
+import ClientDocument from "./pages/admin/ClientDocument";
+
+// Pages Client
+import ClientReservations from "./pages/client/ClientReservations";
+import ClientProfile from "./pages/client/ClientProfile";
+import ClientDocuments from "./pages/client/ClientDocuments";
+import PaymentPage from "./pages/client/PaymentPage";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +59,12 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             
+            {/* Routes client */}
+            <Route path="/client/reservations" element={<ClientReservations />} />
+            <Route path="/client/profile" element={<ClientProfile />} />
+            <Route path="/client/documents" element={<ClientDocuments />} />
+            <Route path="/client/payment" element={<PaymentPage />} />
+            
             {/* Routes d'administration protégées */}
             <Route path="/admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
             <Route path="/admin/vehicles" element={<AdminGuard><AdminVehicles /></AdminGuard>} />
@@ -59,6 +75,10 @@ const App = () => (
             <Route path="/admin/reports" element={<AdminGuard><AdminReports /></AdminGuard>} />
             <Route path="/admin/documents" element={<AdminGuard><AdminDocuments /></AdminGuard>} />
             <Route path="/admin/settings" element={<AdminGuard><AdminSettings /></AdminGuard>} />
+            <Route path="/admin/vehicle-tracking" element={<AdminGuard><VehicleTracking /></AdminGuard>} />
+            <Route path="/admin/vehicle-maintenance" element={<AdminGuard><VehicleMaintenance /></AdminGuard>} />
+            <Route path="/admin/insurance" element={<AdminGuard><InsuranceManagement /></AdminGuard>} />
+            <Route path="/admin/client-documents" element={<AdminGuard><ClientDocument /></AdminGuard>} />
             
             {/* Route d'erreur 404 pour les chemins inexistants */}
             <Route path="*" element={<NotFound />} />
