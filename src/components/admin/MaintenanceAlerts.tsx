@@ -2,7 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { BarChart, Bell, Calendar, Car, Clock, FilterX, Tool, Wrench } from "lucide-react";
+import { BarChart, Bell, Calendar, Car, Clock, FilterX, Wrench } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 
 type MaintenanceAlert = {
@@ -104,7 +104,7 @@ const MaintenanceAlerts = ({ alerts }: MaintenanceAlertsProps) => {
                     </Badge>
                   </div>
                   <div className="flex items-center text-sm text-muted-foreground">
-                    <Tool className="h-4 w-4 mr-2" />
+                    <Wrench className="h-4 w-4 mr-2" />
                     <span>{alert.type}</span>
                   </div>
                 </div>

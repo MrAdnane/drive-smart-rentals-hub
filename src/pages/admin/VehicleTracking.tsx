@@ -1,4 +1,3 @@
-
 import AdminLayout from "@/components/admin/AdminLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -21,7 +20,7 @@ import {
   Bell, 
   Filter, 
   Car, 
-  Tool, 
+  Wrench, 
   Clock,
   AlertTriangle
 } from "lucide-react";
@@ -29,7 +28,6 @@ import { useState } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Progress } from "@/components/ui/progress";
 
-// Données de démonstration pour les maintenances
 const maintenanceData = [
   {
     id: "M1001",
@@ -77,7 +75,6 @@ const maintenanceData = [
   }
 ];
 
-// Données de démonstration pour les assurances
 const insuranceData = [
   {
     id: "A1001",
@@ -121,7 +118,6 @@ const insuranceData = [
   }
 ];
 
-// Données de démonstration pour les alertes
 const alertsData = [
   {
     id: "AL1001",
@@ -157,7 +153,6 @@ const alertsData = [
   }
 ];
 
-// Fonction pour rendre la classe CSS selon la priorité
 const getPriorityClass = (priority: string) => {
   switch (priority) {
     case "haute":
@@ -171,7 +166,6 @@ const getPriorityClass = (priority: string) => {
   }
 };
 
-// Fonction pour rendre la classe CSS selon le statut
 const getStatusClass = (status: string) => {
   switch (status) {
     case "actif":
@@ -210,7 +204,7 @@ const VehicleTracking = () => {
       <Tabs defaultValue="maintenance" className="mb-6">
         <TabsList className="grid w-full grid-cols-1 md:grid-cols-3">
           <TabsTrigger value="maintenance" className="flex items-center">
-            <Tool className="mr-2 h-4 w-4" /> Entretiens & Vidanges
+            <Wrench className="mr-2 h-4 w-4" /> Entretiens & Vidanges
           </TabsTrigger>
           <TabsTrigger value="insurance" className="flex items-center">
             <FileText className="mr-2 h-4 w-4" /> Assurances
@@ -314,7 +308,7 @@ const VehicleTracking = () => {
                                 <Clock className="h-4 w-4 mr-1" /> Planifier
                               </Button>
                               <Button variant="outline" size="sm">
-                                <Tool className="h-4 w-4 mr-1" /> Détails
+                                <Wrench className="h-4 w-4 mr-1" /> Détails
                               </Button>
                             </div>
                           </TableCell>

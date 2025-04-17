@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { Mail, Phone, MessageSquare, Clock, HelpCircle, ShieldCheck } from "lucide-react";
+import { Mail, Phone, MessageSquare, Clock, HelpCircle, ShieldCheck, Check } from "lucide-react";
 
 const Support = () => {
   const { toast } = useToast();
@@ -251,7 +251,7 @@ const Support = () => {
                 <ul className="space-y-2">
                   <li className="flex items-start">
                     <div className="mr-2 mt-0.5 h-5 w-5 text-primary flex-shrink-0">
-                      <CheckCircle className="h-5 w-5" />
+                      <Check className="h-5 w-5" />
                     </div>
                     <div>
                       <strong>Corrections de bugs</strong>
@@ -262,7 +262,7 @@ const Support = () => {
                   </li>
                   <li className="flex items-start">
                     <div className="mr-2 mt-0.5 h-5 w-5 text-primary flex-shrink-0">
-                      <CheckCircle className="h-5 w-5" />
+                      <Check className="h-5 w-5" />
                     </div>
                     <div>
                       <strong>Sauvegardes régulières</strong>
@@ -273,7 +273,7 @@ const Support = () => {
                   </li>
                   <li className="flex items-start">
                     <div className="mr-2 mt-0.5 h-5 w-5 text-primary flex-shrink-0">
-                      <CheckCircle className="h-5 w-5" />
+                      <Check className="h-5 w-5" />
                     </div>
                     <div>
                       <strong>Mises à jour de sécurité</strong>
@@ -284,7 +284,7 @@ const Support = () => {
                   </li>
                   <li className="flex items-start">
                     <div className="mr-2 mt-0.5 h-5 w-5 text-primary flex-shrink-0">
-                      <CheckCircle className="h-5 w-5" />
+                      <Check className="h-5 w-5" />
                     </div>
                     <div>
                       <strong>Évolutions fonctionnelles</strong>

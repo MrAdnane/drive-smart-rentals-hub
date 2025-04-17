@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,12 +12,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, FileText, Filter, Plus, Search, Tool, Wrench } from "lucide-react";
+import { Calendar, FileText, Filter, Plus, Search, Wrench } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import MaintenanceAlerts from "@/components/admin/MaintenanceAlerts";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-// Données factices pour la démo
 const maintenanceRecords = [
   {
     id: "M1001",
@@ -365,7 +363,7 @@ const VehicleMaintenance = () => {
                           <TableCell>
                             <div className="flex space-x-2">
                               <Button variant="outline" size="sm">
-                                <Tool className="h-4 w-4 mr-1" />
+                                <Wrench className="h-4 w-4 mr-1" />
                                 Détails
                               </Button>
                             </div>
@@ -456,7 +454,7 @@ const VehicleMaintenance = () => {
                                   : "Planifier"}
                               </Button>
                               <Button variant="outline" size="sm">
-                                <Tool className="h-4 w-4 mr-1" />
+                                <Wrench className="h-4 w-4 mr-1" />
                                 Détails
                               </Button>
                             </div>
