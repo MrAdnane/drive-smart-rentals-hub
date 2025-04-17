@@ -17,9 +17,6 @@ import FAQ from "./pages/FAQ";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
-import Reservation from "./pages/Reservation";
-import Support from "./pages/Support";
-import Documentation from "./pages/Documentation";
 
 // Pages Admin
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -27,8 +24,6 @@ import AdminVehicles from "./pages/admin/AdminVehicles";
 import AdminCustomers from "./pages/admin/AdminCustomers";
 import AdminReservations from "./pages/admin/AdminReservations";
 import AdminMaintenance from "./pages/admin/AdminMaintenance";
-import VehicleMaintenance from "./pages/admin/VehicleMaintenance";
-import VehicleTracking from "./pages/admin/VehicleTracking";
 import AdminAlerts from "./pages/admin/AdminAlerts";
 import AdminReports from "./pages/admin/AdminReports";
 import AdminDocuments from "./pages/admin/AdminDocuments";
@@ -53,9 +48,6 @@ const App = () => (
             <Route path="/faq" element={<FAQ />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/reservation" element={<Reservation />} />
-            <Route path="/support" element={<Support />} />
-            <Route path="/documentation" element={<Documentation />} />
             
             {/* Routes d'administration protégées */}
             <Route path="/admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
@@ -63,8 +55,6 @@ const App = () => (
             <Route path="/admin/customers" element={<AdminGuard><AdminCustomers /></AdminGuard>} />
             <Route path="/admin/reservations" element={<AdminGuard><AdminReservations /></AdminGuard>} />
             <Route path="/admin/maintenance" element={<AdminGuard><AdminMaintenance /></AdminGuard>} />
-            <Route path="/admin/vehicle-maintenance" element={<AdminGuard><VehicleMaintenance /></AdminGuard>} />
-            <Route path="/admin/vehicle-tracking" element={<AdminGuard><VehicleTracking /></AdminGuard>} />
             <Route path="/admin/alerts" element={<AdminGuard><AdminAlerts /></AdminGuard>} />
             <Route path="/admin/reports" element={<AdminGuard><AdminReports /></AdminGuard>} />
             <Route path="/admin/documents" element={<AdminGuard><AdminDocuments /></AdminGuard>} />
