@@ -1,7 +1,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Car, User, Menu, X, LogOut } from "lucide-react";
+import { Car, User, Menu, X, LogOut, FileText, HelpCircle } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/components/ui/use-toast";
@@ -49,6 +49,12 @@ const Navbar = () => {
             </Link>
             <Link to="/contact" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
               Contact
+            </Link>
+            <Link to="/documentation" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              Documentation
+            </Link>
+            <Link to="/support" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              Support
             </Link>
             {isAdmin() && (
               <Link to="/admin" className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
@@ -130,6 +136,20 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
+            </Link>
+            <Link 
+              to="/documentation" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Documentation
+            </Link>
+            <Link 
+              to="/support" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Support
             </Link>
             {isAdmin() && (
               <Link 
