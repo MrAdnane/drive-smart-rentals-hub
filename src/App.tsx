@@ -17,8 +17,6 @@ import FAQ from "./pages/FAQ";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
-import Documentation from "./pages/Documentation";
-import Support from "./pages/Support";
 
 // Pages Admin
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -48,8 +46,6 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/documentation" element={<Documentation />} />
-            <Route path="/support" element={<Support />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             
